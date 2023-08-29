@@ -1,0 +1,55 @@
+{
+	"bsonType": "object",
+	"required": [],
+	"permission": {
+		"read": true,
+		"create": false,
+		"update": false,
+		"delete": false
+	},
+	"properties": {
+		"_id": {
+			"description": "ID，系统自动生成"
+		},
+		"platform": {
+			"bsonType": "string",
+			"trim": "both"
+		},
+		"description": {
+			"bsonType": "string",
+			"trim": "both"
+		},
+		"rule": {
+			"bsonType": "string",
+			"trim": "both"
+		},
+		"commission": {
+			"bsonType": "string",
+			"trim": "both"
+		},
+		"end_date": {
+			"bsonType": "string",
+			"trim": "both"
+		},
+		"poster_path": {
+			"bsonType": "string"
+		},
+		"app_id": {
+			"bsonType": "string"
+		},
+		"navigate_path": {
+			"bsonType": "string"
+		},
+		"token": {
+			"bsonType": "string"
+		},
+		"sort": {
+			"bsonType": "int"
+		},
+		"status": {
+			"bsonType": "int",
+			"defaultValue": 1,
+			"description": "0 关闭 1 开启"
+		}
+	}
+}
