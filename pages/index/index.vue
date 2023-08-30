@@ -4,9 +4,12 @@
 	<safe-area></safe-area>
 
 	<view class="container">
-		<view class="func-wrapper">
-			<!-- <ad adpid=""></ad> -->
-			<what-eat></what-eat>
+		<view class="func-area">
+			<func-area></func-area>
+		</view>
+
+		<view class="tip-bar">
+			<tip-bar></tip-bar>
 		</view>
 
 		<view class="tab" :style="{top: tabTop + 'px'}">
@@ -31,10 +34,11 @@
 			</view>
 		</view>
 
-		<view style="height: 50rpx;"></view>
+		<safe-area type="bottom"></safe-area>
 	</view>
 
 	<popup ref="popup"></popup>
+	<load-view :isLoading="isLoading"></load-view>
 </template>
 
 <script>
@@ -56,7 +60,8 @@
 				],
 				currentTabIndex: 0,
 				events: [],
-				tabTop: 0
+				tabTop: 0,
+				isLoading: true
 			}
 		},
 		onLoad() {
@@ -70,8 +75,12 @@
 		},
 		methods: {
 			async getEvents() {
-				const res = await db.collection('events').where('status != 0').orderBy('sort desc').get();
+				const res = await db.collection('events').where('status != 0 && end_date > $cloudEnv_now')
+					.orderBy('sort desc').get();
 				this.events = res.result.data;
+				setTimeout(() => {
+					this.isLoading = false;
+				}, 500);
 			},
 			getCoupon(e) {
 				if (e.app_id) {
@@ -108,8 +117,12 @@
 	.container {
 		// padding: 30rpx;
 
-		.func-wrapper {
+		.func-area {
 			margin: 30rpx;
+		}
+
+		.tip-bar {
+			margin: 45rpx 30rpx 15rpx 30rpx;
 		}
 	}
 
@@ -120,7 +133,8 @@
 	}
 
 	.tab-view {
-		margin: 10rpx 30rpx 30rpx 30rpx;
+		margin: 30rpx;
+		margin-top: 15rpx;
 
 		.card {
 			border: 1rpx solid #eee;

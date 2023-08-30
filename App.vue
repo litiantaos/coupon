@@ -1,7 +1,8 @@
 <script>
 	export default {
 		globalData: {
-			systemInfo: {}
+			systemInfo: {},
+			uniBaseUrl: 'https://mp-f18043b0-ee24-4db2-b450-4b908c8b1bc2.cdn.bspapp.com/coupon'
 		},
 		onLaunch: function() {
 			uni.getSystemInfo({
@@ -26,5 +27,5 @@
 </script>
 
 <style>
-	/*每个页面公共css */
+	/* @import url('remixicon/fonts/remixicon.css'); */
 </style>

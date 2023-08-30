@@ -4,6 +4,11 @@
 		"style": {
 			"navigationStyle": "custom"
 		}
+	}, {
+		"path": "pages/random-food/random-food",
+		"style": {
+			"navigationBarTitleText": ""
+		}
 	}],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

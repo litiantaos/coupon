@@ -49,7 +49,7 @@
 			box-sizing: border-box;
 
 			.title {
-				font-size: 36rpx;
+				font-size: 40rpx;
 				font-weight: bold;
 			}
 		}
