@@ -47,12 +47,12 @@
 				uniBaseUrl
 			} = getApp().globalData;
 
-			this.imgUrl = uniBaseUrl + '/images/assets/fruit_tea.png';
-			this.machineImgUrl = uniBaseUrl + '/images/assets/raffle_machine.png';
+			this.imgUrl = uniBaseUrl + '/images/fruit_tea.png';
+			this.machineImgUrl = uniBaseUrl + '/images/raffle_machine.png';
 		},
 		methods: {
 			async getFoods() {
-				const res = await db.collection('foods').aggregate().sample({
+				const res = await db.collection('co-foods').aggregate().sample({
 					size: 100
 				}).end();
 

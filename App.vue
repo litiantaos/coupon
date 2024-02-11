@@ -2,7 +2,7 @@
 	export default {
 		globalData: {
 			systemInfo: {},
-			uniBaseUrl: 'https://mp-f18043b0-ee24-4db2-b450-4b908c8b1bc2.cdn.bspapp.com/coupon'
+			uniBaseUrl: 'https://mp-3430637f-7f9f-4db5-9362-7316f6003843.cdn.bspapp.com/coupon'
 		},
 		onLaunch: function() {
 			uni.getSystemInfo({

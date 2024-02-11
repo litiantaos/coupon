@@ -17,8 +17,8 @@
 				</view>
 				<view class="overlay"></view>
 				<swiper class="swiper" autoplay circular>
-					<swiper-item class="swiper-item" v-for="img in catImgs" :key="img">
-						<image class="swiper-image" :src="img" mode="aspectFill"></image>
+					<swiper-item class="swiper-item" v-for="(img, idx) in catImgs" :key="img">
+						<image class="swiper-image" :src="img" mode="aspectFill" @click="previewImage(idx)"></image>
 					</swiper-item>
 				</swiper>
 			</view>
@@ -49,10 +49,10 @@
 				uniBaseUrl
 			} = getApp().globalData;
 
-			this.imgUrl = uniBaseUrl + '/images/assets/food_poster.jpg';
+			this.imgUrl = uniBaseUrl + '/images/food_poster.jpg';
 
 			for (let i = 1; i <= 6; i++) {
-				this.catImgs.push(uniBaseUrl + '/images/cat/' + i + '.jpg');
+				this.catImgs.push(uniBaseUrl + '/images/cat_' + i + '.jpg');
 			}
 		},
 		methods: {
@@ -60,7 +60,13 @@
 				uni.navigateTo({
 					url: '/pages/random-food/random-food'
 				});
-			}
+			},
+      previewImage(index) {
+      	uni.previewImage({
+      		current: index,
+      		urls: this.catImgs
+      	});
+      }
 		}
 	}
 </script>

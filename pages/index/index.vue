@@ -75,7 +75,7 @@
 		},
 		methods: {
 			async getEvents() {
-				const res = await db.collection('events').where('status != 0 && end_date > $cloudEnv_now')
+				const res = await db.collection('co-events').where('status != 0 && end_date > $cloudEnv_now')
 					.orderBy('sort desc').get();
 				this.events = res.result.data;
 				setTimeout(() => {
